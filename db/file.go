@@ -10,7 +10,7 @@ import (
 func OnFileUploadFinished(filehash string, filename string,
 	filesize int64, fileaddr string) bool {
 	stmt, err := mydb.DBConn().Prepare(
-		"insert ignore into tbl_file (`file_sha1`,`file_name`,`file_size`," +
+		"insert ignore into table_file (`file_sha1`,`file_name`,`file_size`," +
 			"`file_addr`,`status`) values (?,?,?,?,1)")
 	if err != nil {
 		fmt.Println("Failed to prepare statement, err:" + err.Error())
